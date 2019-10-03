@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 
-import com.example.course.entities.UserDomain;
+import com.example.course.domains.UserDomain;
 import com.example.course.repositories.UserRepository;
 
 @Configuration

@@ -1,11 +1,14 @@
-package com.example.course.entities;
+package com.example.course.domains;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,15 +22,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-public class UserDomain implements Serializable {
+public class OrderDomain implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(generator = "UUID")
 	private UUID id;
-	private String name;
-	private String email;
-	private String phone;
-	private String password;
+	private Instant moment;
+	
+	@ManyToOne
+	@JoinColumn(name = "client_id")
+	private UserDomain client;
 
 }
